@@ -1,0 +1,9 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="USA_SUITE" verbose="1" >
+    <test name="MainPageTest"   >
+        <packages>
+            <package name="com.usa.web" />
+        </packages>
+    </test>
+</suite>
