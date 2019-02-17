@@ -2,6 +2,7 @@ package com.usa.web;
 
 
 import com.usa.web.pages.MainPage;
+import com.usa.web.pages.SearchResultPage;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 
@@ -11,7 +12,9 @@ public class MainPageTest extends TestRunner {
     protected MainPage mainPage;
 
     private static final String EXPECTED_TITLE = "Google";
-    private static final String BASE_URL = "https://www.google.com";
+    private static final String BASE_URL = "https://www.glassdoor.com";
+    private static final String SEARCH_REQUEST = "QA Automaion";
+    private static final String LOCATION_REQUEST = "San Francisco";
 
 
     @Test
@@ -24,9 +27,20 @@ public class MainPageTest extends TestRunner {
 
     }
 
+    @Test
+    public void verifySearchFunction() {
+        mainPage.open(BASE_URL);
+        SearchResultPage resultPage = mainPage
+                                              .getSearchBar()
+                                              .search(SEARCH_REQUEST, LOCATION_REQUEST);
+        resultPage.verifyPageLoaded();
+
+    }
+
     @BeforeClass
     public void beforeClass() {
         mainPage = new MainPage(driver);
+
     }
 
 }

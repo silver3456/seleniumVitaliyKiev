@@ -5,9 +5,11 @@ import org.testng.Assert;
 
 public class MainPage {
     private WebDriver driver;
+    private SearchBar searchBar;
 
     public MainPage(WebDriver driver) {
         this.driver = driver;
+        searchBar = new SearchBar(driver);
     }
 
     public void open(String url) {
@@ -26,4 +28,7 @@ public class MainPage {
         return driver.getTitle().equals(expectedTitle);
     }
 
+    public SearchBar getSearchBar() {
+        return searchBar;
+    }
 }
