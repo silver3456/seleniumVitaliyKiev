@@ -16,10 +16,10 @@ public class TestRunner {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
 
-    }
+    }}
 
-    @AfterSuite
-    public void afterSuiteTearDown() {
-        driver.quit();
-    }
-}
+//    @AfterSuite
+//    public void afterSuiteTearDown() {
+//        driver.quit();
+//    }
+//}

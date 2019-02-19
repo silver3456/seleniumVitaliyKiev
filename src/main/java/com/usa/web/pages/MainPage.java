@@ -6,10 +6,12 @@ import org.testng.Assert;
 public class MainPage {
     private WebDriver driver;
     private SearchBar searchBar;
+    private JobsPage jobsPage;
 
     public MainPage(WebDriver driver) {
         this.driver = driver;
         searchBar = new SearchBar(driver);
+        jobsPage = new JobsPage(driver);
     }
 
     public void open(String url) {
@@ -30,5 +32,9 @@ public class MainPage {
 
     public SearchBar getSearchBar() {
         return searchBar;
+    }
+
+    public JobsPage getJobsPage() {
+        return jobsPage;
     }
 }

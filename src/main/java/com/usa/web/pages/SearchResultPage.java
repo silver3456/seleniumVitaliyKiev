@@ -17,6 +17,5 @@ public class SearchResultPage {
 
     public void verifyPageLoaded(){
         Assert.assertTrue(helper.isElementDisplayed(PAGE_CONTENT_BLOCK));
-
     }
 }

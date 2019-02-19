@@ -18,7 +18,7 @@ public class SearchBar {
     private static final String LOCATION_INPUT = "#LocationSearch";
     private static final String SEARCH_BUTTON = "#HeroSearchButton";
 
-    public  SearchResultPage search(String searchRequest, String location){
+    public SearchResultPage search(String searchRequest, String location){
         helper.enterText(KEYWORD_INPUT, searchRequest);
         helper.enterText(LOCATION_INPUT, location);
         helper.clickButton(SEARCH_BUTTON);
