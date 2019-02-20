@@ -5,15 +5,17 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
 
+import static java.lang.String.format;
+
 public class JobsPage {
 
     private WebDriver driver;
     private Actions action;
-    protected ElementHelper helper;
+    private ElementHelper helper;
 
     private static final String JOBS_LINK = "//*[@id='TopNav']//a[text() = 'Jobs']";
-   // private static final String CHICAGO_CITY = "//*[@id='TopNav']//a[text() = 'Chicago']";
-    private static final String CHICAGO_CITY = "//*[@id=\"TopNav\"]/nav/div[2]/ul[2]/li[2]/div/ul[2]/li[2]/a";
+    //private static final String CHICAGO_CITY = "//*[@id=\"TopNav\"]//following-sibling::li[contains(*, \"Chicago" + " Jobs\")]"; 
+    private static final String PATTERN_CITY = "//*[@id=\"TopNav\"]//following-sibling::li[contains(*, \"%s" + " Jobs\")]";  // как построить динамический локатор??
     //private WebElement jobsLink = driver.findElement(By.xpath(JOBS_LINK));
 
     public JobsPage(WebDriver driver) {
@@ -27,10 +29,11 @@ public class JobsPage {
 //        return new JobsInChicago(driver);
 //    }
 
-    public JobsInChicago verifyJobs()  {
+    public JobsInChicago verifyJobs(String cityName)  {
         action.moveToElement(driver.findElement(By.xpath(JOBS_LINK))).build().perform(); //hover over an element
-        helper.isElementDisplayed(CHICAGO_CITY);
-        driver.findElement(By.xpath(CHICAGO_CITY)).click();
+        helper.isElementDisplayed(format(PATTERN_CITY, cityName));
+        driver.findElement(By.xpath(format(PATTERN_CITY, cityName))).click();
+
         return new JobsInChicago(driver);
     }
 }

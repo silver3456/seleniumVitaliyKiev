@@ -33,8 +33,8 @@ public class MainPageTest extends TestRunner {
     public void verifySearchFunction() {
         mainPage.open(BASE_URL);
         SearchResultPage resultPage = mainPage
-                .getSearchBar()
-                .search(SEARCH_REQUEST, LOCATION_REQUEST);
+                                              .getSearchBar()
+                                              .search(SEARCH_REQUEST, LOCATION_REQUEST);
         resultPage.verifyPageLoaded();
 
     }
@@ -44,7 +44,7 @@ public class MainPageTest extends TestRunner {
         mainPage.open(BASE_URL);
         JobsInChicago jobsPage = mainPage
                                          .getJobsPage()
-                                         .verifyJobs();
+                                         .verifyJobs("Chicago");
         jobsPage.jobsInRightCity("Jobs in Chicago, IL");
     }
 
