@@ -4,11 +4,11 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
-public class JobsInChicago {
+public class JobsByCity {
     private WebDriver driver;
     private static final String CITY = "//*[@id='jobTitle']";
 
-    public JobsInChicago(WebDriver driver) {
+    public JobsByCity(WebDriver driver) {
         this.driver = driver;
     }
 

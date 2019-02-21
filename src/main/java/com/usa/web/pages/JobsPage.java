@@ -14,7 +14,7 @@ public class JobsPage {
     private ElementHelper helper;
 
     private static final String JOBS_LINK = "//*[@id='TopNav']//a[text() = 'Jobs']";
-    //private static final String CHICAGO_CITY = "//*[@id=\"TopNav\"]//following-sibling::li[contains(*, \"Chicago" + " Jobs\")]"; 
+    //private static final String CHICAGO_CITY = "//*[@id=\"TopNav\"]//following-sibling::li[contains(*, \"Chicago" + " Jobs\")]";
     private static final String PATTERN_CITY = "//*[@id=\"TopNav\"]//following-sibling::li[contains(*, \"%s" + " Jobs\")]";  // как построить динамический локатор??
     //private WebElement jobsLink = driver.findElement(By.xpath(JOBS_LINK));
 
@@ -24,16 +24,16 @@ public class JobsPage {
         helper = new ElementHelper(driver);
     }
 
-//    public JobsInChicago searchJobsByCity() {
+//    public JobsByCity searchJobsByCity() {
 //        action.moveToElement(jobsLink).build().perform();
-//        return new JobsInChicago(driver);
+//        return new JobsByCity(driver);
 //    }
 
-    public JobsInChicago verifyJobs(String cityName)  {
+    public JobsByCity verifyJobs(String cityName)  {
         action.moveToElement(driver.findElement(By.xpath(JOBS_LINK))).build().perform(); //hover over an element
         helper.isElementDisplayed(format(PATTERN_CITY, cityName));
         driver.findElement(By.xpath(format(PATTERN_CITY, cityName))).click();
 
-        return new JobsInChicago(driver);
+        return new JobsByCity(driver);
     }
 }

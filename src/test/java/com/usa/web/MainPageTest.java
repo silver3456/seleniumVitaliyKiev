@@ -1,7 +1,7 @@
 package com.usa.web;
 
 
-import com.usa.web.pages.JobsInChicago;
+import com.usa.web.pages.JobsByCity;
 import com.usa.web.pages.MainPage;
 import com.usa.web.pages.SearchResultPage;
 import org.testng.Assert;
@@ -42,7 +42,7 @@ public class MainPageTest extends TestRunner {
     @Test
     public void verifyJobsByCityTest()  {
         mainPage.open(BASE_URL);
-        JobsInChicago jobsPage = mainPage
+        JobsByCity jobsPage = mainPage
                                          .getJobsPage()
                                          .verifyJobs("Chicago");
         jobsPage.jobsInRightCity("Jobs in Chicago, IL");
