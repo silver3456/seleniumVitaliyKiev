@@ -12,7 +12,7 @@ public class JobsByCity {
         this.driver = driver;
     }
 
-    public void jobsInRightCity(String cityName) {
+    public void verifyJobsInRightCity(String cityName) {
         Assert.assertTrue(driver.findElement(By.xpath(CITY)).getText().equals(cityName));
     }
 }
