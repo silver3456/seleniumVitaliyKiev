@@ -13,31 +13,35 @@ public class ElementHelper {
     }
 
     public void enterText(String locator, String text) {
-        driver.findElement(By.cssSelector(locator)).clear();
-        driver.findElement(By.cssSelector(locator)).sendKeys(text);
+        driver.findElement(getTypeLocator(locator)).clear();
+        driver.findElement(getTypeLocator(locator)).sendKeys(text);
     }
 
-    public void clickButton(String locator) {
-        driver.findElement(By.cssSelector(locator)).click();
+    public void clickOnElement(String locator) {
+        driver.findElement(getTypeLocator(locator)).click();
     }
-
 
     //method overloading. wait by default 8 seconds
-    public boolean isElementDisplayed(String locator) {
-      return isElementDisplayed(locator, 8);
+    public boolean waitUntilElementDisplayed(String locator) {
+      return waitUntilElementDisplayed(locator, 8);
     }
 
     //use this method when we want ot specify how many seconds to wait
-
-    public boolean isElementDisplayed(String locator, int timeOutInSeconds) {
+    public boolean waitUntilElementDisplayed(String locator, int timeOutInSeconds) {
         WebDriverWait wait = new WebDriverWait(driver, timeOutInSeconds);
-
         try {
-            wait.until(driver -> driver.findElement(By.cssSelector(locator)).isDisplayed());
+            wait.until(driver -> driver.findElement(getTypeLocator(locator)).isDisplayed());
             return true;
-
         } catch (TimeoutException e) {
             return false;
         }
+    }
+
+    public static By getTypeLocator(String locator) {
+        if (locator.startsWith("//") || locator.startsWith("/")) {
+            return By.xpath(locator);
+        }
+
+        return By.cssSelector(locator);
     }
 }
