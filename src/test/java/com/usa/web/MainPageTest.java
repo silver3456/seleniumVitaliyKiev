@@ -46,11 +46,14 @@ public class MainPageTest extends TestRunner {
         resultPage.verifyPageLoaded();
     }
 
+    private static final String CITY = "Chicago";
+    private static final String EXPECTED_CITY = "Jobs in Chicago, IL";
+
     @Test
     public void verifyJobsByCityTest()  {
         mainPage.open(BASE_URL)
                 .getJobsPage()
-                .selectJobByCityName("Chicago")
-                .verifyJobsInRightCity("Jobs in Chicago, IL");
+                .selectJobByCityName(CITY)
+                .verifyJobsInRightCity(EXPECTED_CITY);
     }
 }
