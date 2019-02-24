@@ -23,7 +23,7 @@ public class JobsPage {
 
     public JobsByCity selectByCityName(String cityName) {
         hoverToElement(driver, JOBS_LINK);
-        helper.waitTillElementDisplayed(format(PATTERN_CITY, cityName));
+        helper.waitUntilElementDisplayed(format(PATTERN_CITY, cityName));
         helper.clickOnElement(format(PATTERN_CITY, cityName));
 
         return new JobsByCity(driver);
