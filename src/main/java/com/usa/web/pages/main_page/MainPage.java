@@ -1,5 +1,7 @@
 package com.usa.web.pages.main_page;
 
+import com.usa.web.pages.main_page.component.JobsPage;
+import com.usa.web.pages.main_page.component.SearchBar;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
