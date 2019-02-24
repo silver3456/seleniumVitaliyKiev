@@ -2,16 +2,19 @@ package com.usa.web;
 
 import com.usa.web.pages.main_page.MainPage;
 import com.usa.web.pages.search_result_page.SearchResultPage;
+import com.usa.web.utils.PropertyLoader;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
+import static com.usa.web.utils.PropertyLoader.*;
+
 public class MainPageTest extends TestRunner {
     protected MainPage mainPage;
 
     private static final String EXPECTED_TITLE = "Glassdoor Job Search | Find the job that fits your life";
-    private static final String BASE_URL = "https://www.glassdoor.com";
+    private static final String BASE_URL = getBaseUrl();
     private static final String SEARCH_REQUEST = "QA Automaion";
     private static final String LOCATION_REQUEST = "San Francisco";
 
