@@ -1,4 +1,4 @@
-package com.usa.web.pages;
+package com.usa.web.pages.main_page;
 
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
@@ -14,8 +14,9 @@ public class MainPage {
         jobsPage = new JobsPage(driver);
     }
 
-    public void open(String url) {
+    public MainPage open(String url) {
         driver.get(url);
+        return this;
     }
 
     public void verifyTitle(String title) {

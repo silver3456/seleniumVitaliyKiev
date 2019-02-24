@@ -1,8 +1,9 @@
-package com.usa.web.pages;
+package com.usa.web.pages.main_page;
 
-import org.openqa.selenium.By;
+
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
+import static com.usa.web.utils.ElementHelper.*;
 
 public class JobsByCity {
     private WebDriver driver;
@@ -12,7 +13,7 @@ public class JobsByCity {
         this.driver = driver;
     }
 
-    public void jobsInRightCity(String cityName) {
-        Assert.assertTrue(driver.findElement(By.xpath(CITY)).getText().equals(cityName));
+    public void verifyJobsInRightCity(String cityName) {
+        Assert.assertTrue(driver.findElement(getTypeLocator(CITY)).getText().equals(cityName));
     }
 }
