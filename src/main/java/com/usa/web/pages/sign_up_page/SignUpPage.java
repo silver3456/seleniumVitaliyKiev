@@ -1,4 +1,4 @@
-package com.usa.web.pages.login_page;
+package com.usa.web.pages.sign_up_page;
 
 import com.usa.web.utils.ElementHelper;
 import org.openqa.selenium.WebDriver;

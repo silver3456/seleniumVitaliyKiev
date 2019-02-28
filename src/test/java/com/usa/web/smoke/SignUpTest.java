@@ -1,7 +1,7 @@
 package com.usa.web.smoke;
 
 import com.usa.web.TestRunner;
-import com.usa.web.pages.login_page.SignUpPage;
+import com.usa.web.pages.sign_up_page.SignUpPage;
 import com.usa.web.pages.main_page.MainPage;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;

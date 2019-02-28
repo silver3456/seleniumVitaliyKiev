@@ -2,7 +2,6 @@ package com.usa.web;
 
 import com.usa.web.pages.main_page.MainPage;
 import com.usa.web.pages.search_result_page.SearchResultPage;
-import com.usa.web.utils.PropertyLoader;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
