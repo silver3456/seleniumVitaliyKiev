@@ -3,10 +3,10 @@ package com.usa.web.pages.main_page;
 import com.usa.web.pages.main_page.component.JobsPage;
 import com.usa.web.pages.main_page.component.SearchBar;
 import com.usa.web.pages.sign_in_page.SignInPage;
+import com.usa.web.utils.ElementHelper;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
-import static com.usa.web.utils.ElementHelper.*;
 
 public class MainPage {
     private WebDriver driver;
