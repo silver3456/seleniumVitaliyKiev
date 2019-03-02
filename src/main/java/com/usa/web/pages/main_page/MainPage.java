@@ -3,6 +3,7 @@ package com.usa.web.pages.main_page;
 import com.usa.web.pages.main_page.component.JobsPage;
 import com.usa.web.pages.main_page.component.SearchBar;
 import com.usa.web.pages.sign_in_page.SignInPage;
+import com.usa.web.utils.ElementHelper;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
@@ -12,6 +13,7 @@ public class MainPage {
     private WebDriver driver;
     private SearchBar searchBar;
     private JobsPage jobsPage;
+    private ElementHelper helper;
 
     private static final String SIGN_IN_LINK = "//li[@class = 'sign-in']//a[text()= 'Sign In']";
 
@@ -19,6 +21,7 @@ public class MainPage {
         this.driver = driver;
         searchBar = new SearchBar(driver);
         jobsPage = new JobsPage(driver);
+        helper = new ElementHelper(driver);
     }
 
     public MainPage open(String url) {
@@ -47,7 +50,8 @@ public class MainPage {
     }
 
     public SignInPage goToSignInPage() {
-        driver.findElement(getTypeLocator(SIGN_IN_LINK)).click();
+        System.out.println("Navigate to Sign page");
+        helper.clickOnElement(SIGN_IN_LINK);
         return new SignInPage(driver);
     }
 }
