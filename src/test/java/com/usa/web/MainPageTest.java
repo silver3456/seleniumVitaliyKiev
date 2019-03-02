@@ -7,7 +7,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-import static com.usa.web.utils.PropertyLoader.*;
+import static com.usa.web.utils.PropertyLoader.getBaseUrl;
 
 public class MainPageTest extends TestRunner {
     protected MainPage mainPage;
