@@ -5,6 +5,8 @@ import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import static java.lang.String.format;
+
 public class ElementHelper {
     private WebDriver driver;
 
@@ -12,12 +14,18 @@ public class ElementHelper {
         this.driver = driver;
     }
 
+    public String getText(String locator) {
+        return driver.findElement(getTypeLocator(locator)).getText().trim();
+    }
+
     public void enterText(String locator, String text) {
+        System.out.println(format("Clear and set text: %s to an element with locator: %s", text, locator));
         driver.findElement(getTypeLocator(locator)).clear();
         driver.findElement(getTypeLocator(locator)).sendKeys(text);
     }
 
     public void clickOnElement(String locator) {
+        System.out.println("CLick on element with locator: " + locator);
         driver.findElement(getTypeLocator(locator)).click();
     }
 

@@ -22,14 +22,15 @@ public class SignInPage {
     }
 
     public SignInPage fillSignInForm(String email, String password){
+        System.out.println("Fill form on Sign Page");
         helper.enterText(USERNAME, email);
         helper.enterText(PASSWORD,password );
         helper.clickOnElement(SIGN_IN_BUTTON);
         return this;
     }
 
-    public void verifyError(String errorMessage){
-        String error = driver.findElement(By.xpath((ERROR_MESSAGE))).getText();
-        Assert.assertEquals(error, errorMessage);
+    public void verifyError(String expectedErrorMessage){
+        System.out.println("verify error");
+        Assert.assertEquals(helper.getText(ERROR_MESSAGE), expectedErrorMessage);
     }
 }

@@ -1,12 +1,11 @@
-package com.usa.web.smoke;
+package com.usa.web;
 
-import com.usa.web.TestRunner;
-import com.usa.web.pages.sign_up_page.SignUpPage;
 import com.usa.web.pages.main_page.MainPage;
+import com.usa.web.pages.sign_up_page.SignUpPage;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-import static com.usa.web.utils.PropertyLoader.*;
+import static com.usa.web.utils.PropertyLoader.getBaseUrl;
 
 public class SignUpTest extends TestRunner {
     private MainPage mainPage;

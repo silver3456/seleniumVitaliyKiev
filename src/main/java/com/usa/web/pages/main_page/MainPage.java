@@ -13,13 +13,15 @@ public class MainPage {
     private WebDriver driver;
     private SearchBar searchBar;
     private JobsPage jobsPage;
+    private ElementHelper helper;
 
-    private static final String SignInLink = "//li[@class = 'sign-in']//a[text()= 'Sign In']";
+    private static final String SIGN_IN_LINK = "//li[@class = 'sign-in']//a[text()= 'Sign In']";
 
     public MainPage(WebDriver driver) {
         this.driver = driver;
         searchBar = new SearchBar(driver);
         jobsPage = new JobsPage(driver);
+        helper = new ElementHelper(driver);
     }
 
     public MainPage open(String url) {
@@ -47,8 +49,9 @@ public class MainPage {
         return jobsPage;
     }
 
-    public SignInPage getSignInPage() {
-        driver.findElement(getTypeLocator(SignInLink)).click();
+    public SignInPage goToSignInPage() {
+        System.out.println("Navigate to Sign page");
+        helper.clickOnElement(SIGN_IN_LINK);
         return new SignInPage(driver);
     }
 }
