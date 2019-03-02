@@ -1,11 +1,12 @@
 package com.usa.web;
 
-import com.usa.web.utils.PropertyLoader;
+
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
 
 import java.util.concurrent.TimeUnit;
 
@@ -21,6 +22,11 @@ public class TestRunner {
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(getDefaultWait(), TimeUnit.SECONDS);
         driver.manage().window().maximize();
+    }
+
+    @BeforeMethod
+    public void beforeTest(){
+        driver.manage().deleteAllCookies();
     }
 
     @AfterClass
