@@ -1,7 +1,6 @@
 package com.usa.web.pages.sign_in_page;
 
 import com.usa.web.utils.ElementHelper;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 

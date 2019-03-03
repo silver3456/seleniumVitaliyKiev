@@ -14,6 +14,7 @@ public class MainPage {
     private JobsPage jobsPage;
     private ElementHelper helper;
 
+   // private static final String SIGN_IN_LINK = "//li[@class = 'sign-in']//a[text()= 'Sign In']";
     private static final String SIGN_IN_LINK = "//li[@class = 'sign-in']//a[text()= 'Sign In']";
 
     public MainPage(WebDriver driver) {
