@@ -2,6 +2,9 @@ package com.usa.web;
 
 import com.usa.web.pages.main_page.MainPage;
 import com.usa.web.test_data.DataGenerator;
+import com.usa.web.utils.CaptureScreenshots;
+import org.testng.ITestResult;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -23,5 +26,22 @@ public class NegativeSignInTest extends TestRunner {
                 .goToSignInPage()
                 .fillSignInForm(email, password)
                 .verifyError(expectedErrorMessage);
+    }
+
+    @Test
+    public void captureScreenshotTest() {
+        mainPage
+                .open(getBaseUrl())
+                .goToSignInPage();
+    }
+
+    @AfterMethod
+    public void tearDown(ITestResult result) {
+        if (ITestResult.FAILURE == result.getStatus()) {
+            CaptureScreenshots.captureScreen(driver, "FAILURE");
+        } else {
+            CaptureScreenshots.captureScreen(driver, "SUCCESS");
+        }
+
     }
 }
