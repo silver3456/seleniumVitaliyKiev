@@ -1,5 +1,6 @@
 package com.usa.web.utils;
 
+import org.apache.log4j.Logger;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -10,29 +11,26 @@ import java.io.IOException;
 import static com.google.common.io.Files.*;
 
 public class CaptureScreenshots {
-    private WebDriver driver;
 
-    public CaptureScreenshots(WebDriver driver) {
-        this.driver = driver;
-    }
+    private static Logger LOG = Logger.getLogger(CaptureScreenshots.class.getName());
 
     public static void captureScreen(WebDriver driver, String status) {
 
+        File tmp = null;
+
+        final String baseDir = System.getProperty("user.dir");
+
         try {
-            File tmp = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-
-            if (status.equals("FAILURE")) {
-                File srcFile = new File("/Users/alexander/workspace/selenium/src/test/java/screenshots_failure/screen-"
-                        + System.currentTimeMillis() + ".png");
-                copy(tmp, srcFile);
-            } else if (status.equals("SUCCESS")) {
-                File srcFile = new File("/Users/alexander/workspace/selenium/src/test/java/screenshots_success/screen-"
-                        + System.currentTimeMillis() + ".png");
-                copy(tmp, srcFile);
-            }
-
+            tmp = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+            File srcFile = new File(String.format("%s/screenshots_%s/screen-%s.png", baseDir, status.toLowerCase(), System.currentTimeMillis()));
+            copy(tmp, srcFile);
         } catch (IOException e) {
-            e.printStackTrace();
+            LOG.info(e.getMessage());
+        } finally {
+
+            if (tmp != null) {
+                tmp.deleteOnExit();
+            }
         }
     }
 }

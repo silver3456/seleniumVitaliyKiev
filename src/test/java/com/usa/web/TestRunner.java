@@ -1,18 +1,20 @@
 package com.usa.web;
 
 
+import com.usa.web.listeners.LogListener;
+import com.usa.web.utils.CaptureScreenshots;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeMethod;
+import org.testng.ITestResult;
+import org.testng.annotations.*;
 
 import java.util.concurrent.TimeUnit;
 
 import static com.usa.web.utils.PropertyLoader.*;
 
 
+@Listeners(value = {LogListener.class})
 public class TestRunner {
     protected WebDriver driver;
 
@@ -25,8 +27,15 @@ public class TestRunner {
     }
 
     @BeforeMethod
-    public void beforeTest(){
+    public void beforeTest() {
         driver.manage().deleteAllCookies();
+    }
+
+
+    @AfterMethod
+    public void tearDown(ITestResult result) {
+        String status = ITestResult.FAILURE == result.getStatus() ? "FAILURE" : "SUCCESS";
+        CaptureScreenshots.captureScreen(driver, status.toLowerCase());
     }
 
     @AfterClass

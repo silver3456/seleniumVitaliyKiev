@@ -1,6 +1,8 @@
 package com.usa.web.pages.sign_up_page;
 
+
 import com.usa.web.utils.ElementHelper;
+import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
@@ -9,6 +11,8 @@ import static java.lang.String.format;
 public class SignUpPage {
     private WebDriver driver;
     private ElementHelper helper;
+    private static Logger LOG = Logger.getLogger(SignUpPage.class.getName());
+
 
     public SignUpPage(WebDriver driver) {
         this.driver = driver;

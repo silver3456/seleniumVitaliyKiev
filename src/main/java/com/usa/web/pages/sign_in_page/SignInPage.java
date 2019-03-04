@@ -1,6 +1,7 @@
 package com.usa.web.pages.sign_in_page;
 
 import com.usa.web.utils.ElementHelper;
+import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
@@ -8,6 +9,7 @@ import org.testng.Assert;
 public class SignInPage {
     private WebDriver driver;
     private ElementHelper helper;
+    private static Logger LOG = Logger.getLogger(SignInPage.class.getName());
 
     private static final String USERNAME = "//input[@name = 'username']";
     private static final String PASSWORD = "//input[@name = 'password']";
@@ -21,7 +23,7 @@ public class SignInPage {
     }
 
     public SignInPage fillSignInForm(String email, String password){
-        System.out.println("Fill form on Sign Page");
+        LOG.info("Fill form on Sign Page");
         helper.enterText(USERNAME, email);
         helper.enterText(PASSWORD,password );
         helper.clickOnElement(SIGN_IN_BUTTON);
@@ -29,7 +31,7 @@ public class SignInPage {
     }
 
     public void verifyError(String expectedErrorMessage){
-        System.out.println("verify error");
+        LOG.info("verify error");
         Assert.assertEquals(helper.getText(ERROR_MESSAGE), expectedErrorMessage);
     }
 }

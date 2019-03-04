@@ -4,6 +4,7 @@ import com.usa.web.pages.main_page.component.JobsPage;
 import com.usa.web.pages.main_page.component.SearchBar;
 import com.usa.web.pages.sign_in_page.SignInPage;
 import com.usa.web.utils.ElementHelper;
+import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
@@ -14,7 +15,7 @@ public class MainPage {
     private JobsPage jobsPage;
     private ElementHelper helper;
 
-   // private static final String SIGN_IN_LINK = "//li[@class = 'sign-in']//a[text()= 'Sign In']";
+    private static Logger LOG = Logger.getLogger(MainPage.class.getName());
     private static final String SIGN_IN_LINK = "//li[@class = 'sign-in']//a[text()= 'Sign In']";
 
     public MainPage(WebDriver driver) {
@@ -25,6 +26,7 @@ public class MainPage {
     }
 
     public MainPage open(String url) {
+        LOG.info("Open with url: " + url);
         driver.get(url);
         return this;
     }
@@ -50,7 +52,7 @@ public class MainPage {
     }
 
     public SignInPage goToSignInPage() {
-        System.out.println("Navigate to Sign page");
+        LOG.info("Navigate to Sign page");
         helper.clickOnElement(SIGN_IN_LINK);
         return new SignInPage(driver);
     }

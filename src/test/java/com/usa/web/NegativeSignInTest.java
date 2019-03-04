@@ -34,14 +34,4 @@ public class NegativeSignInTest extends TestRunner {
                 .open(getBaseUrl())
                 .goToSignInPage();
     }
-
-    @AfterMethod
-    public void tearDown(ITestResult result) {
-        if (ITestResult.FAILURE == result.getStatus()) {
-            CaptureScreenshots.captureScreen(driver, "FAILURE");
-        } else {
-            CaptureScreenshots.captureScreen(driver, "SUCCESS");
-        }
-
-    }
 }
