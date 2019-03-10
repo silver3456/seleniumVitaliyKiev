@@ -33,4 +33,8 @@ public class CaptureScreenshots {
             }
         }
     }
+
+    public static byte[] captureScreenByte(WebDriver driver) {
+        return ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
+    }
 }

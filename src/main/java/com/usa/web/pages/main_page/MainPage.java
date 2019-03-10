@@ -4,6 +4,7 @@ import com.usa.web.pages.main_page.component.JobsPage;
 import com.usa.web.pages.main_page.component.SearchBar;
 import com.usa.web.pages.sign_in_page.SignInPage;
 import com.usa.web.utils.ElementHelper;
+import io.qameta.allure.Step;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
@@ -25,6 +26,7 @@ public class MainPage {
         helper = new ElementHelper(driver);
     }
 
+    @Step("Open main page with url : {0}")
     public MainPage open(String url) {
         LOG.info("Open with url: " + url);
         driver.get(url);
@@ -51,6 +53,7 @@ public class MainPage {
         return jobsPage;
     }
 
+    @Step("go to SignIn page:")
     public SignInPage goToSignInPage() {
         LOG.info("Navigate to Sign page");
         helper.clickOnElement(SIGN_IN_LINK);

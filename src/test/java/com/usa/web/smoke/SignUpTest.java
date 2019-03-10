@@ -1,7 +1,9 @@
-package com.usa.web;
+package com.usa.web.smoke;
 
+import com.usa.web.TestRunner;
 import com.usa.web.pages.main_page.MainPage;
 import com.usa.web.pages.sign_up_page.SignUpPage;
+import io.qameta.allure.Description;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -23,6 +25,7 @@ public class SignUpTest extends TestRunner {
     }
 
     @Test
+    @Description("SignUpTest: verify Negative attempt to login")
     public void verifyNegativeAttemptToSignUp() {
         mainPage.open(getBaseUrl());
         signUpPage

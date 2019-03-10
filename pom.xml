@@ -10,7 +10,9 @@
 
     <properties>
         <suite>testng.xml</suite>
+        <aspectj.version>1.8.10</aspectj.version>
     </properties>
+
 
     <dependencies>
         <!--get and set webdriver from Internet-->
@@ -39,6 +41,11 @@
             <artifactId>log4j</artifactId>
             <version>1.2.17</version>
         </dependency>
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-testng</artifactId>
+            <version>2.7.0</version>
+        </dependency>
 
     </dependencies>
 
@@ -52,6 +59,9 @@
                     <suiteXmlFiles>
                         <suiteXmlFile>${suite}</suiteXmlFile>
                     </suiteXmlFiles>
+                    <argLine>
+                        -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
+                    </argLine>
                 </configuration>
             </plugin>
             <plugin>
@@ -61,6 +71,13 @@
                     <source>8</source>
                     <target>8</target>
                 </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.aspectj</groupId>
+                        <artifactId>aspectjweaver</artifactId>
+                        <version>${aspectj.version}</version>
+                    </dependency>
+                </dependencies>
             </plugin>
         </plugins>
     </build>

@@ -2,6 +2,7 @@ package com.usa.web.pages.sign_up_page;
 
 
 import com.usa.web.utils.ElementHelper;
+import io.qameta.allure.Step;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
@@ -24,6 +25,7 @@ public class SignUpPage {
     private static final String SUBMIT_BUTTON = ".signUpForm button";
 
 
+    @Step("Try to login to SignUp page email: {0}, pass: {1}")
     public SignUpPage login(String email, String password) {
         helper.enterText(EMAIL_INPUT, email);
         helper.enterText(PASSWORD_INPUT, password);
@@ -34,6 +36,8 @@ public class SignUpPage {
 
     private static final String ERROR_MESSAGE_LOCATOR = "//div[contains(text(), '%s')]";
 
+
+    @Step("Verify error message: {0} present")
     public void verifyEmailErrorMessage(String errorMessage) {
         Assert.assertTrue(helper.waitUntilElementDisplayed(format(ERROR_MESSAGE_LOCATOR, errorMessage)));
     }
