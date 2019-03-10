@@ -227,3 +227,23 @@ Session ID: 21cadc5ab7088739c126cb4740c2154d
 2019-03-09 11:39:24 INFO  SmokeTest:11 - Hello from smoke test
 2019-03-09 11:39:24 INFO  LogListener:20 - Test started with name: null success
 
+2019-03-09 17:54:05 INFO  LogListener:14 - /nTest started with name: null
+2019-03-09 17:54:05 INFO  MainPage:31 - Open with url: https://www.glassdoor.com
+2019-03-09 17:54:08 INFO  ElementHelper:24 - Clear and set text: dfs@ to an element with locator: #userEmail
+2019-03-09 17:54:12 ERROR LogListener:26 - Test started with name: null fail
+
+2019-03-09 17:54:12 ERROR LogListener:27 - Test error: org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"css selector","selector":"#userEmail"}
+  (Session info: chrome=72.0.3626.121)
+  (Driver info: chromedriver=2.46.628411 (3324f4c8be9ff2f70a05a30ebc72ffb013e1a71e),platform=Mac OS X 10.12.6 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 0 milliseconds
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'AlexandersMBP2.hsd1.ca.comcast.net', ip: '192.168.1.119', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.12.6', java.version: '1.8.0_201'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, acceptSslCerts: false, applicationCacheEnabled: false, browserConnectionEnabled: false, browserName: chrome, chrome: {chromedriverVersion: 2.46.628411 (3324f4c8be9ff2..., userDataDir: /var/folders/mx/69xrsg991kg...}, cssSelectorsEnabled: true, databaseEnabled: false, goog:chromeOptions: {debuggerAddress: localhost:54115}, handlesAlerts: true, hasTouchScreen: false, javascriptEnabled: true, locationContextEnabled: true, mobileEmulationEnabled: false, nativeEvents: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: MAC, platformName: MAC, proxy: Proxy(), rotatable: false, setWindowRect: true, strictFileInteractability: false, takesHeapSnapshot: true, takesScreenshot: true, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unexpectedAlertBehaviour: ignore, unhandledPromptBehavior: ignore, version: 72.0.3626.121, webStorageEnabled: true}
+Session ID: 30ad790cc0b3f219f92cdc2a908f576b
+*** Element info: {Using=css selector, value=#userEmail}
+2019-03-09 17:54:14 INFO  LogListener:14 - /nTest started with name: null
+2019-03-09 17:54:14 INFO  SmokeTest:11 - Hello from smoke test
+2019-03-09 17:54:14 INFO  LogListener:20 - Test started with name: null success
+
