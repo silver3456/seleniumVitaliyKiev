@@ -1,9 +1,14 @@
 package com.usa.web.utils;
 
+import com.usa.web.pages.sign_up_page.SignUpPage;
 import org.apache.log4j.Logger;
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import static java.lang.String.format;
@@ -40,11 +45,38 @@ public class ElementHelper {
     public boolean waitUntilElementDisplayed(String locator, int timeOutInSeconds) {
         WebDriverWait wait = new WebDriverWait(driver, timeOutInSeconds);
         try {
-            wait.until(driver -> driver.findElement(getTypeLocator(locator)).isDisplayed());
-            return true;
+            Alert alert = wait.until(CustomCondition.customAlert());
+            return wait.until(driver -> driver.findElement(getTypeLocator(locator)).isDisplayed());
         } catch (TimeoutException e) {
             return false;
         }
+    }
+
+    public Alert waitTillAlertPresent() {
+        WebDriverWait wait = new WebDriverWait(driver, 10);
+        return wait.until(CustomCondition.customAlert());
+    }
+
+    public SignUpPage example() {
+        FluentWait<WebDriver> wait = new FluentWait<>(driver);
+
+        SignUpPage isConditionHappens = wait.until(driver ->  {
+            if(driver.getTitle().equalsIgnoreCase("SomeTitle")) {
+                return new SignUpPage(driver);
+            }
+
+            // logic
+            driver.navigate().refresh();
+            return null;
+        });
+
+        wait.until(driver -> driver.getTitle().equalsIgnoreCase("Title"));
+
+        return isConditionHappens;
+    }
+
+    public FluentWait getWait() {
+        return new FluentWait<>(driver);
     }
 
     public static By getTypeLocator(String locator){

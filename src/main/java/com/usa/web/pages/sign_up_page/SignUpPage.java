@@ -39,6 +39,8 @@ public class SignUpPage {
 
     @Step("Verify error message: {0} present")
     public void verifyEmailErrorMessage(String errorMessage) {
+        String text = helper.waitTillAlertPresent().getText();
+
         Assert.assertTrue(helper.waitUntilElementDisplayed(format(ERROR_MESSAGE_LOCATOR, errorMessage)));
     }
 }
