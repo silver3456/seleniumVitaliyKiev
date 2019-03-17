@@ -46,7 +46,12 @@
             <artifactId>allure-testng</artifactId>
             <version>2.7.0</version>
         </dependency>
-
+        <dependency>
+            <groupId>net.lightbody.bmp</groupId>
+            <artifactId>browsermob-core</artifactId>
+            <version>2.1.5</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 
     <build>
