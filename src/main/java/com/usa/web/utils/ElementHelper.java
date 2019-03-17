@@ -48,7 +48,7 @@ public class ElementHelper {
     }
 
     public static By getTypeLocator(String locator){
-        if (locator.startsWith("//") || locator.startsWith("/")){
+        if (locator.startsWith("//") || locator.startsWith(".//") || locator.startsWith("/")){
             return By.xpath(locator);
         }
 
