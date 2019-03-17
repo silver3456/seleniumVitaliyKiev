@@ -7,13 +7,16 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import io.qameta.allure.Attachment;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.ITestResult;
-import org.testng.annotations.*;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Listeners;
 
 import java.util.concurrent.TimeUnit;
 
-import static com.usa.web.utils.PropertyLoader.*;
+import static com.usa.web.utils.PropertyLoader.getDefaultWait;
 
 
 @Listeners(value = {LogListener.class})
