@@ -247,3 +247,13 @@ Session ID: 30ad790cc0b3f219f92cdc2a908f576b
 2019-03-09 17:54:14 INFO  SmokeTest:11 - Hello from smoke test
 2019-03-09 17:54:14 INFO  LogListener:20 - Test started with name: null success
 
+2019-03-28 18:48:36 INFO  LogListener:14 - /nTest started with name: null
+2019-03-28 18:48:37 INFO  MainPage:31 - Open with url: https://www.glassdoor.com
+2019-03-28 18:48:44 INFO  LogListener:20 - Test started with name: null success
+
+2019-03-28 18:49:27 INFO  LogListener:14 - /nTest started with name: null
+2019-03-28 18:49:28 INFO  MainPage:31 - Open with url: https://www.glassdoor.com
+2019-03-28 18:49:34 INFO  ElementHelper:25 - Clear and set text: dfs@ to an element with locator: #userEmail
+2019-03-28 18:49:34 ERROR LogListener:26 - Test started with name: null fail
+
+2019-03-28 18:49:34 ERROR LogListener:27 - Test error: java.lang.NullPointerException

@@ -4,6 +4,7 @@ import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import static java.lang.String.format;
@@ -24,6 +25,11 @@ public class ElementHelper {
         LOG.info(format("Clear and set text: %s to an element with locator: %s", text, locator));
         driver.findElement(getTypeLocator(locator)).clear();
         driver.findElement(getTypeLocator(locator)).sendKeys(text);
+    }
+
+    public void enterText(WebElement element, String text) {
+        element.clear();
+        element.sendKeys(text);
     }
 
     public void clickOnElement(String locator) {

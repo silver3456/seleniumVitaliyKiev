@@ -5,6 +5,8 @@ import com.usa.web.utils.ElementHelper;
 import io.qameta.allure.Step;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
 
 import static java.lang.String.format;
@@ -13,6 +15,9 @@ public class SignUpPage {
     private WebDriver driver;
     private ElementHelper helper;
     private static Logger LOG = Logger.getLogger(SignUpPage.class.getName());
+
+    @FindBy(css = EMAIL_INPUT)
+    WebElement emailElement;
 
 
     public SignUpPage(WebDriver driver) {
@@ -28,6 +33,7 @@ public class SignUpPage {
     @Step("Try to login to SignUp page email: {0}, pass: {1}")
     public SignUpPage login(String email, String password) {
         helper.enterText(EMAIL_INPUT, email);
+        helper.enterText(emailElement, email);
         helper.enterText(PASSWORD_INPUT, password);
         helper.clickOnElement(SUBMIT_BUTTON);
 
